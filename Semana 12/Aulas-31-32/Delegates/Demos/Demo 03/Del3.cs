@@ -66,6 +66,10 @@ namespace Del3
             Console.WriteLine();
         }
 
+
+        //
+        // VER CODIGO IL
+        //
         private static void AnonymousDelegateDemo()
         {
             Console.WriteLine("----- Anonymous Delegate Demo -----");
@@ -156,14 +160,13 @@ namespace Del3
 
         public static void Main1()
         {
-            StaticDelegateDemo();
+            //StaticDelegateDemo();
             //InstanceDelegateDemo();
-            //AnonymousDelegateDemo();
+            AnonymousDelegateDemo();
 
             //ChainDelegateDemo1(new Program());
             //ChainDelegateDemo2(new Program());
         }
-
 
     }
 }

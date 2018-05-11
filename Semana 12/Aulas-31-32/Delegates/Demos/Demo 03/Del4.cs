@@ -13,53 +13,44 @@ namespace Del4
     {
         int i;
 
-        // Utilizacao de delegate anonimo dentro dum metodo de instancia
-        // Variavel this e' capturada
-        private /*static*/ void AnonymousDelegateDemo()
-        {
-            Console.WriteLine("----- Anonymous Delegate Demo -----");
-
-            Counter(1, 3, delegate (int value)
-            {
-
-                Console.WriteLine("i = " + i + ", Item = " + value.ToString());
-            });
-
-            Console.WriteLine();
-            /*
-            //Ou:
-            Feedback anonymous = delegate(int value) {
-                Console.WriteLine("Item=" + value);
-            };
-
-            Counter(1, 3, anonymous);
-            Console.WriteLine();
-            */
-        }
         private static void Counter(Int32 from, Int32 to, Feedback fb)
         {
             if (fb == null) return;
 
             // If any callbacks are specified, call them
             for (Int32 val = from; val <= to; val++)
+            {
                 fb(val);
-            // fb.Invoke(val);
-        }
-        private static void FeedbackToConsole(Int32 value)
-        {
-            Console.WriteLine("Item=" + value.ToString());
+                //<=>
+                // fb.Invoke(val);
+            }
         }
 
-        private static void FeedbackToMsgBox(Int32 value)
+        // Utilizacao de delegate anonimo dentro dum metodo de instancia.
+        // A variavel this e' capturada
+        private /*static*/ void AnonymousDelegateDemo()
         {
-            MessageBox.Show("Item=" + value.ToString());
-        }
+            Console.WriteLine("----- Anonymous Delegate Demo -----");
 
-        private void FeedbackToFile(Int32 value)
-        {
-            StreamWriter sw = new StreamWriter("Status", true);
-            sw.WriteLine("Item=" + value.ToString());
-            sw.Close();
+            Counter(1, 3, delegate (int value)
+            {
+                Console.WriteLine("i = " + this.i + ", Item = " + value.ToString());
+                //this.i = 10;
+            });
+            Console.WriteLine();
+
+            ////Ou:
+            //Feedback anonymous = delegate(int value) {
+            //    Console.WriteLine("i = " + this.i + ", Item = " + value.ToString());
+            //};
+            //Counter(1, 3, anonymous);
+            //Console.WriteLine();
+
+            ////Ou:
+            //Feedback lambda = (int value) => Console.WriteLine("i = " + this.i + ", Item = " + value.ToString());
+            //Counter(1, 3, lambda);
+            //Console.WriteLine();
+
         }
 
         public static void Main1()

@@ -51,9 +51,9 @@ int main5() {
 
 	cout << ch << endl;
 		
-	char arr[] = { 'O', 'L', 'A', ' ', 'M', 'E', 'U', 'S', ' ', 'A', 'M', 'I', 'G', 'O', 'S'};
+    char arr[] = { 'O', 'L', 'A', ' ', 'M', 'E', 'U', 'S', ' ', 'A', 'M', 'I', 'G', 'O', 'S'};
 
-//    process5(arr, fp, obj);
+    process5(arr, fp, obj);
 //    process5(arr, 0, obj);
 		
 	// Imprimir array de chars

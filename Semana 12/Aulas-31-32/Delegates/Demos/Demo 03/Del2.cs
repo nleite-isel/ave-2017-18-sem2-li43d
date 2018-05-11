@@ -49,7 +49,7 @@ namespace Del2
             // d3 -= d2;
             // d3 -= new DT(f2); // Equivalente à linha anterior
             // d3 -= f2;
-            d3 -= obj.instance;
+            //d3 -= obj.instance;
 
             Console.WriteLine(d3(100));
 
